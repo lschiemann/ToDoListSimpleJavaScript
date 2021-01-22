@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>To-do CRUD</title>
+  <link rel="stylesheet"
+        href="css/site.css" />
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>To-do CRUD</h1>
+  <h3>Add list</h3>
+  <form action="javascript:void(0);"
+        method="POST"
+        onsubmit="addList()">
+    <input type="text"
+           id="add-list-title"
+           placeholder="New to-do list">
+    <input type="submit"
+           value="Add">
+  </form>
+
+  <p id="listCounter"></p>
+
+  <table id="listsTable">
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tbody id="lists"></tbody>
+  </table>
+
+  <div id="editListForm">
+    <h3>Edit list</h3>
+    <form action="javascript:void(0);"
+          onsubmit="updateList()">
+      <input type="hidden"
+             id="edit-list-id">
+      <input type="text"
+             id="edit-list-title">
+      <input type="submit"
+             value="Save">
+      <a onclick="closeListInput()"
+         aria-label="Close">&#10006;</a>
+    </form>
+  </div>
+
+  <div id="items">
+    <h3>Add item</h3>
+    <form action="javascript:void(0);"
+          method="POST"
+          id="addItemForm">
+      <input type="text"
+             id="add-title"
+             placeholder="New to-do item">
+      <input type="submit"
+             value="Add">
+    </form>
+
+    <p id="counter"></p>
+    <table id="itemsTable">
+      <tr>
+        <th>Completed</th>
+        <th>Title</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tbody id="todos"></tbody>
+    </table>
+
+    <div id="editForm">
+      <h3>Edit item</h3>
+      <form action="javascript:void(0);"
+            onsubmit="updateItem()">
+        <input type="hidden"
+               id="edit-id">
+        <input type="hidden"
+               id="edit-listId">
+        <input type="checkbox"
+               id="edit-isCompleted">
+        <input type="text"
+               id="edit-title">
+        <input type="text"
+               id="edit-description">
+        <input type="submit"
+               value="Save">
+        <a onclick="closeInput()"
+           aria-label="Close">&#10006;</a>
+      </form>
+    </div>
+  </div>
+
+
+  <script src="js/site.js"
+          asp-append-version="true"></script>
+  <script type="text/javascript">
+    getLists();
+  </script>
+</body>
+</html>
